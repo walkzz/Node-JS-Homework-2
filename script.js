@@ -17,3 +17,31 @@
 //   { ime: "Natasha", prosek: 8.1, grad: "Skopje" },
 //   { ime: "Stanko", prosek: 7.2, grad: "Strumica" },
 // ];
+const studenti = [
+    { ime: "Bojan", prosek: 7.5, grad: "Skopje" },
+    { ime: "Pero", prosek: 8.3, grad: "Bitola" },
+    { ime: "Janko", prosek: 6.9, grad: "Bitola" },
+    { ime: "Vesna", prosek: 9.2, grad: "Skopje" },
+    { ime: "Elena", prosek: 9.9, grad: "Kumanovo" },
+    { ime: "Vancho", prosek: 10, grad: "Tetovo" },
+    { ime: "Elena", prosek: 9.9, grad: "Ohrid" },
+    { ime: "Ivana", prosek: 6.9, grad: "Kumanovo" },
+    { ime: "Natasha", prosek: 8.1, grad: "Skopje" },
+    { ime: "Stanko", prosek: 7.2, grad: "Strumica" },
+];
+// task 1
+console.log("task 1:")
+function findLastLetter(name) {
+    return name[name.length - 1];
+}
+const findCityAndAverage = studenti
+.filter(student => student.grad === "Skopje" && findLastLetter(student.ime) === 'a' && student.prosek > 7)
+.sort((a, b) => {
+    if (a.ime < b.ime) return -1;
+    if (a.ime > b.ime) return 1;
+    return 0;
+});
+console.log(findCityAndAverage);
+console.log("--------------------------------------------");
+// task 2
+console.log("task 2:");
