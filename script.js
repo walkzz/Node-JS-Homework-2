@@ -43,6 +43,7 @@ const findCityAndAverage = studenti
 });
 console.log(findCityAndAverage);
 console.log("--------------------------------------------");
+
 // task 2
 console.log("task 2:");
 const aboveNineAndCity = studenti
@@ -50,3 +51,7 @@ const aboveNineAndCity = studenti
     .sort((a, b) => b.prosek - a.prosek);
 
 console.log(aboveNineAndCity);
+console.log("--------------------------------------------");
+
+// task 3
+console.log("task 3:");
