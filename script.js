@@ -35,12 +35,12 @@ function findLastLetter(name) {
     return name[name.length - 1];
 }
 const findCityAndAverage = studenti
-.filter(student => student.grad === "Skopje" && findLastLetter(student.ime) === 'a' && student.prosek > 7)
-.sort((a, b) => {
-    if (a.ime < b.ime) return -1;
-    if (a.ime > b.ime) return 1; // experimental
-    return 0;
-});
+    .filter(student => student.grad === "Skopje" && findLastLetter(student.ime) === 'a' && student.prosek > 7)
+    .sort((a, b) => {
+        if (a.ime < b.ime) return -1;
+        if (a.ime > b.ime) return 1; // experimental
+        return 0;
+    });
 console.log(findCityAndAverage);
 console.log("--------------------------------------------");
 
@@ -55,3 +55,9 @@ console.log("--------------------------------------------");
 
 // task 3
 console.log("task 3:");
+const firstStudentsAverage = studenti
+    .filter(student => student.ime.length === 5)
+    .sort((a, b) => a.prosek - b.prosek)
+    .slice(0, 3);
+
+console.log(firstStudentsAverage);
