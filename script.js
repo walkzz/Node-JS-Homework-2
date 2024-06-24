@@ -61,3 +61,40 @@ const firstStudentsAverage = studenti
     .slice(0, 3);
 
 console.log(firstStudentsAverage);
+console.log("--------------------------------------------");
+
+// task 4
+const cityScores = {};
+
+studenti.forEach(student => {
+    if (!cityScores[student.grad]) {
+        cityScores[student.grad] = { totalScore: 0, count: 0 };
+    }
+    cityScores[student.grad].totalScore += student.prosek;
+    cityScores[student.grad].count += 1;
+});
+
+const task4 = Object.entries(cityScores)
+    .map(([grad, { totalScore, count }]) => ({ grad, avgScore: totalScore / count }))
+    .sort((a, b) => a.avgScore - b.avgScore);
+
+console.log(task4);
+console.log("--------------------------------------------");
+
+
+// task 5
+const task5 = studenti.reduce((acc, student) => {
+    if (student.ime.endsWith('a')) {
+        acc.endsInA.total += student.prosek;
+        acc.endsInA.count += 1;
+    } else {
+        acc.others.total += student.prosek;
+        acc.others.count += 1;
+    }
+    return acc;
+}, { endsInA: { total: 0, count: 0 }, others: { total: 0, count: 0 } });
+
+const avgEndsInA = task5.endsInA.total / task5.endsInA.count;
+const avgOthers = task5.others.total / task5.others.count;
+
+console.log({ avgEndsInA, avgOthers });
